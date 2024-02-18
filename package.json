@@ -12,6 +12,7 @@
     "start:dev": "nest start --watch",
   
       "generate": "drizzle-kit generate:pg",
+      "create":"drizzle-kit  push:pg",
     
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",

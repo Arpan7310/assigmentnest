@@ -28,9 +28,13 @@ export class AppService {
   }
 
   async updateProduct(id: number, productData: Partial<Product>) {
+    
     const updatedProduct = await this.drizzleDev.update(product).set({title:productData.title,desc:productData.desc,price:productData.price})
      .where(eq(product.id, id))
+    
     return { product: updatedProduct };
+    
+ 
   }
 
   async deleteProduct(id: number) {

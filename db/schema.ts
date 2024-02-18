@@ -9,7 +9,7 @@ export const product = pgTable('product', {
     price: numeric('price'),
   }, (product) => {
     return {
-      titleIndex: uniqueIndex('title_idx').on(product.title),
+      
     }
   });
 
@@ -20,7 +20,7 @@ export const product = pgTable('product', {
     price: numeric('price'),
   }, (product) => {
     return {
-      titleIndex: uniqueIndex('title2_idx').on(product.title),
+     
     }
   });
   

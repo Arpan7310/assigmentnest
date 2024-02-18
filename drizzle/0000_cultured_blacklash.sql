@@ -13,6 +13,3 @@ CREATE TABLE IF NOT EXISTS "product2" (
 	"desc" text,
 	"price" numeric
 );
---> statement-breakpoint
-CREATE UNIQUE INDEX IF NOT EXISTS "title_idx" ON "product" ("title");--> statement-breakpoint
-CREATE UNIQUE INDEX IF NOT EXISTS "title2_idx" ON "product2" ("title");
