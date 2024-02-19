@@ -13,8 +13,14 @@ export class ProductsController {
 
   @Get(':id')
   async getProductById(@Param('id') id: number) {
-    const product=this.productService.getProductById(Number(id));
+    const product=await this.productService.getProductById(Number(id));
+   
+    if(!product){
+      throw new HttpException('product not found',HttpStatus.NOT_FOUND)
+    }
+    
     return product
+
   }
 
   @Post()
@@ -32,3 +38,4 @@ export class ProductsController {
     return this.productService.deleteProduct(Number(id));
   }
 }
+

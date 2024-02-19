@@ -18,8 +18,8 @@ export class ProductService{
   }
 
   async getProductById(id: number) {
-    const product = await this.drizzleDev.query.product.findFirst({   where: (posts, { eq }) => (eq(posts.id, id)), });
-    return { product };
+    return this.drizzleDev.query.product.findFirst({   where: (posts, { eq }) => (eq(posts.id, id)), });
+
   }
 
   async addProduct(productData:  Product) {
