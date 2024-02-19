@@ -40,7 +40,7 @@ export class ProductsController {
     const updatedProduct=await this.productService.updateProduct(Number(id), productData);
     }
     catch(e:any){
-      throw new HttpException("error",e.toString())
+      throw new HttpException(e.toString(),HttpStatus.BAD_REQUEST)
     }
   }
 
@@ -50,7 +50,7 @@ export class ProductsController {
     const deletedProduct=await this.productService.deleteProduct(Number(id));
     }
     catch(e:any){
-      throw new HttpException("error",e.toString())
+      throw new HttpException(e.toString(),HttpStatus.BAD_REQUEST)
     }
   }
 }
