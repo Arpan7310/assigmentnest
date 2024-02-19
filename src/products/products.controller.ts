@@ -25,17 +25,33 @@ export class ProductsController {
 
   @Post()
   async addProduct(@Body() productData: any) {
-    return this.productService.addProduct(productData);
+    try{
+    const addedProduct=await this.productService.addProduct(productData);
+    }
+    catch(e:any){
+      throw new HttpException("error",e.toString())
+    }
+
   }
 
   @Put(':id')
   async updateProduct(@Param('id') id: number, @Body() productData: any) {
-    return this.productService.updateProduct(Number(id), productData);
+    try {
+    const updatedProduct=await this.productService.updateProduct(Number(id), productData);
+    }
+    catch(e:any){
+      throw new HttpException("error",e.toString())
+    }
   }
 
   @Delete(':id')
   async deleteProduct(@Param('id') id: number) {
-    return this.productService.deleteProduct(Number(id));
+    try {
+    const deletedProduct=await this.productService.deleteProduct(Number(id));
+    }
+    catch(e:any){
+      throw new HttpException("error",e.toString())
+    }
   }
 }
 
