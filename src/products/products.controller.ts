@@ -27,6 +27,7 @@ export class ProductsController {
   async addProduct(@Body() productData: any) {
     try{
     const addedProduct=await this.productService.addProduct(productData);
+    return {message:"Product Created successfully",addedProduct}
     }
     catch(e:any){
       throw new HttpException("error",e.toString())
@@ -38,6 +39,7 @@ export class ProductsController {
   async updateProduct(@Param('id') id: number, @Body() productData: any) {
     try {
     const updatedProduct=await this.productService.updateProduct(Number(id), productData);
+    return {message:"Product updated successfully",updatedProduct}
     }
     catch(e:any){
       throw new HttpException(e.toString(),HttpStatus.BAD_REQUEST)
@@ -48,6 +50,7 @@ export class ProductsController {
   async deleteProduct(@Param('id') id: number) {
     try {
     const deletedProduct=await this.productService.deleteProduct(Number(id));
+    return {message:"Product deleted successfully",deletedProduct}
     }
     catch(e:any){
       throw new HttpException(e.toString(),HttpStatus.BAD_REQUEST)
